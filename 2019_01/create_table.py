@@ -1,8 +1,11 @@
 import psycopg2
+import os
 
-conn = psycopg2.connect(
-    "host=localhost dbname=postgres user=postgres password=123")
+pw = os.environ.get('postgres')
+
+conn = psycopg2.connect("host=localhost dbname=postgres user=postgres password=pw")
 cur = conn.cursor()
+
 cur.execute("""
     CREATE TABLE preppin_data_2019_01(
     Dealership text,
