@@ -3,7 +3,7 @@ import os
 
 pw = os.environ.get('postgres')
 
-conn = psycopg2.connect("host=localhost dbname=postgres user=postgres password=pw")
+conn = psycopg2.connect("host=localhost dbname=postgres user=postgres password=" + pw)
 
 cur = conn.cursor()
 cur.execute("""
